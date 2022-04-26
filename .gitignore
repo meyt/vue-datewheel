@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# build
+dist/*
+
+# ide
+.vscode
+.idea
+*.sublime-*

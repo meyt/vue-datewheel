@@ -1,0 +1,114 @@
+.vue-datewheel {
+  .vdw-row {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+  }
+  .vdw-col {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  .selector-list-wrapper {
+    position: relative;
+    &::before {
+      content: '';
+      // width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: var(--item-height);
+      border: solid 1px #aaa;
+      border-left-width: 0;
+      border-right-width: 0;
+      pointer-events: none;
+      padding: 6px 8px;
+      right: var(--scrollbar-width);
+      transform: translateY(-50%);
+      box-sizing: border-box;
+    }
+  }
+  .selector-list {
+    height: calc(var(--item-height) * 5);
+    overflow-y: scroll;
+    text-align: center;
+    position: relative;
+    padding: 0 3px;
+    box-sizing: border-box;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    user-select: none;
+    &.is-wheeling {
+      cursor: grabbing;
+      cursor: -webkit-grabbing;
+      *, *:hover {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+      }
+    }
+
+    &::before, &::after {
+      display: block;
+      height: calc(var(--item-height) * 2);
+      content: "";
+    }
+
+    // scrollbar
+    &::-webkit-scrollbar {
+      width: 2px;
+      background: transparent;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,.2);
+      border-radius: 5px;
+      border-width: 0;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,.5);
+    }
+    @media screen and (min-width: 640px) {
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background: rgba(0,0,0,.05);
+      }
+    }
+  }
+  .label {
+    padding: 4px 0;
+    padding-right: var(--scrollbar-width);
+    user-select: none;
+    text-align: center;
+    font-size: .8em;
+    color: #777;
+  }
+
+  .selector {
+    &.time-list &.small-time {
+      .selector-list {
+        height: calc(var(--item-height) * 3);
+        &::before, &::after {
+          height: var(--item-height);
+        }
+      }
+    }
+  }
+
+  .selector-item {
+    cursor: pointer;
+    height: var(--item-height);
+    padding: 6px 8px;
+    line-height: 24px;
+    box-sizing: border-box;
+  }
+
+}
+.date-time-selector-is-wheeling {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
