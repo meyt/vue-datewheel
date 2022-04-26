@@ -5,7 +5,7 @@
 Simple iOS like date picker for Vue.
 
 Features:
-- Based on Browsers native Intl
+- Based on Browser native [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) implementation
 - Zero dependency
 - Multi-calendar
 - Localization
@@ -35,7 +35,7 @@ npm install --save vue-datewheel
 </template>
 
 <script>
-import vueDatewheel from 'vue-datewheel
+import vueDatewheel from 'vue-datewheel'
 import 'vue-datewheel/dist/vue-datewheel.css'
 
 export default {
