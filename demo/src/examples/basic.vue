@@ -1,14 +1,12 @@
 <template>
   <div>
-    <vue-datewheel
-      v-model="selectedDate"
-      calendar="persian"
-      init-today
-    />
-    <div v-if="date">Selected Date: {{ date }}</div>
-    <button @click="increase(1)">Add one day</button>
-    <button @click="increase(10)">Add one week</button>
-    <button @click="increase(30)">Add one month</button>
+    <vue-datewheel v-model="selectedDate" init-today />
+    <div v-if="date">
+      <div>Selected Date: {{ date }}</div>
+      <button @click="increase(1)">Add one day</button>
+      <button @click="increase(10)">Add one week</button>
+      <button @click="increase(30)">Add one month</button>
+    </div>
   </div>
 </template>
 
