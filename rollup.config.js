@@ -1,5 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs'
 import bundleSize from 'rollup-plugin-filesize'
+import copy from 'rollup-plugin-copy'
 import resolve from 'rollup-plugin-node-resolve'
 import vue from 'rollup-plugin-vue'
 import css from 'rollup-plugin-css-only'
@@ -22,6 +23,17 @@ const plugins = [
 ]
 
 export default [
+  // locales
+  {
+    input: 'src/locales/index.js',
+    plugins: [
+      copy({
+        targets: [
+          { src: 'src/locales', dest: 'dist' },
+        ]
+      })
+    ]
+  },
   // ESM build to be used with webpack/rollup.
   {
     external,
