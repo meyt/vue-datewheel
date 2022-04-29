@@ -414,7 +414,14 @@ export default {
             break
         }
         const day = this.tree[this.ctx.year][this.ctx.month - 1][this.ctx.day - 1]
-        this.ctx.date = new Date(day[0], day[1], day[2])
+        this.ctx.date = new Date(
+          day[0],
+          day[1],
+          day[2],
+          this.ctx.hour,
+          this.ctx.minute,
+          this.ctx.second
+        )
       }
     }, 200),
     adjustField (name) {

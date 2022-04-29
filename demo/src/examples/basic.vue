@@ -1,8 +1,15 @@
 <template>
   <div>
     <vue-datewheel v-model="selectedDate" init-today />
-    <div v-if="date">
-      <div>Selected Date: {{ date }}</div>
+    <div v-if="dateString">
+      <div>
+        <span>Selected Date: </span>
+        <span v-text="dateString"/>
+      </div>
+      <div>
+        <span>ISOString: </span>
+        <code v-text="selectedDate.date.toISOString()"/>
+      </div>
       <button @click="increase(1)">Add one day</button>
       <button @click="increase(7)">Add one week</button>
       <button @click="increase(30)">Add one month</button>
@@ -18,7 +25,7 @@ export default {
     }
   },
   computed: {
-    date () {
+    dateString () {
       const ctx = this.selectedDate
       if (!ctx) return
       return [
