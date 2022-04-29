@@ -275,6 +275,8 @@ export default {
         return { text: k, value: k }
       })
       const r = []
+      minYear = formatToParts(this._intlDate, new Date(minYear, 0, 1)).year
+      maxYear = formatToParts(this._intlDate, new Date(maxYear, 11, 31)).year
       for (let i = minYear; i < maxYear; i++) {
         r.push({ text: i, value: i })
       }
