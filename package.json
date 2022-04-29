@@ -1,6 +1,6 @@
 {
   "name": "vue-datewheel",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Simple iOS like date picker for Vue.",
   "scripts": {
     "dev": "vite --config demo/vite.config.js",
