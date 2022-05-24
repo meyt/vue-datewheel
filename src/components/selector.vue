@@ -107,11 +107,8 @@ export default {
         this.selectItem(this._clickIndex)
       } else if (e.target === this.$refs.list) {
         // on dragging scrollbar
-        console.log(e, deltaY, '<<<scrollend')
-
         setTimeout(this.scrollToMiddle, 200)
       } else {
-        console.log('scrolltomidddle')
         this.scrollToMiddle()
       }
       delete this._clickIndex
