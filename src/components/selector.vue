@@ -82,10 +82,11 @@ export default {
       const middleEl = getMiddleElement(containerEl, this.itemHeight)
       if (!middleEl) return
       const containerYOffset = parseInt(parseInt(containerEl.clientHeight / this.itemHeight) / 2)
-      containerEl.scrollTo({
-        top: middleEl.offsetTop - this.itemHeight * containerYOffset,
-        behavior: 'smooth'
-      })
+      const scrollTop = middleEl.offsetTop - this.itemHeight * containerYOffset
+      containerEl.scrollTo({ top: scrollTop, behavior: 'smooth' })
+
+      const itemIndex = parseInt(scrollTop / this.itemHeight)
+      this.$emit('input', this.items[itemIndex])
     },
     selectItem (index) {
       const containerEl = this.$refs.list
@@ -100,13 +101,17 @@ export default {
       this.$emit('input', this.items[index])
     },
     onScrollend (e, deltaY) {
+
       if (Math.abs(deltaY) < 2 && typeof this._clickIndex !== 'undefined') {
         // its click
         this.selectItem(this._clickIndex)
       } else if (e.target === this.$refs.list) {
         // on dragging scrollbar
+        console.log(e, deltaY, '<<<scrollend')
+
         setTimeout(this.scrollToMiddle, 200)
       } else {
+        console.log('scrolltomidddle')
         this.scrollToMiddle()
       }
       delete this._clickIndex
