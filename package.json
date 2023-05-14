@@ -11,12 +11,7 @@
   ],
   "main": "./dist/vue-datewheel.umd.cjs",
   "module": "./dist/vue-datewheel.js",
-  "exports": {
-    ".": {
-      "import": "./dist/vue-datewheel.js",
-      "require": "./dist/vue-datewheel.umd.cjs"
-    }
-  },
+  "style": "./dist/style.css",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
