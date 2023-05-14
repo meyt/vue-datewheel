@@ -1,3 +1,9 @@
+<script setup>
+import ExamplesBasic from './examples/basic.vue'
+import ExamplesLocale from './examples/locale.vue'
+import ExamplesCalendar from './examples/calendar.vue'
+import ExamplesLayout from './examples/layout.vue'
+</script>
 <template>
   <div class="container">
     <h1>
@@ -18,7 +24,10 @@
         <h3>Calendar</h3>
         <p>
           You can use any calendar
-          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendars">
+          <a
+            target="_blank"
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendars"
+          >
             supported by the browser.
           </a>
         </p>

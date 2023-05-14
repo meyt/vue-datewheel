@@ -16,6 +16,12 @@ Features:
 
 ## Install
 
+Vue 2
+```
+npm install --save vue-datewheel@0.1.7
+```
+
+Vue 3
 ```
 npm install --save vue-datewheel
 ```
