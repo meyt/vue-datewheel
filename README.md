@@ -12,7 +12,7 @@ Features:
 - Mouse wheel and touch gestures
 
 
-[Demo](https://meyt.github.io/vue-datewheel)
+[Demo](https://meyt.github.io/vue-datewheel/?path=/story/vue-datewheel--basic)
 
 ## Install
 
