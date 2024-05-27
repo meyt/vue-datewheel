@@ -14,6 +14,7 @@ const config = {
   },
   core: {
     disableTelemetry: true,
+    disableWhatsNewNotifications: true,
   },
   async viteFinal(config, { configType }) {
     const { mergeConfig } = await import('vite')
