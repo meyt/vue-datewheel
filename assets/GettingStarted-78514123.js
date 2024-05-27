@@ -1,4 +1,4 @@
-import{r as m,M as c}from"./index-6a6c59bb.js";import{u as v}from"./index-abfa5f44.js";import"./iframe-46f67355.js";import"../sb-preview/runtime.js";import"./index-abcdd3e4.js";import"./index-356e4a49.js";var u={exports:{}},o={};/**
+import{d as m,M as c}from"./index-56007c3d.js";import{u as v}from"./index-51a10e8a.js";import"./iframe-4f78a81f.js";import"../sb-preview/runtime.js";import"./index-0f48f798.js";import"./index-356e4a49.js";var u={exports:{}},o={};/**
  * @license React
  * react-jsx-runtime.production.min.js
  *
@@ -20,7 +20,7 @@ Features:
 - Mouse wheel and touch gestures
 
 
-[Demo](https://meyt.github.io/vue-datewheel)
+[Demo](https://meyt.github.io/vue-datewheel/?path=/story/vue-datewheel--basic)
 
 ## Install
 
