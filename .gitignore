@@ -1,8 +1,8 @@
 # dependencies
 node_modules
-
-# logs
 npm-debug.log
 
 dist/*
 demo-dist/*
+storybook-static/*
+*storybook.log
