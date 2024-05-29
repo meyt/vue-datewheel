@@ -29,9 +29,10 @@ export default {
   title: 'vue-datewheel',
   component: VueDatewheel,
   argTypes: {
-    initToday: {
-      control: 'boolean'
-    },
+    modelValue: { control: 'date' },
+    min: { control: 'date' },
+    max: { control: 'date' },
+    layout: { control: 'object' },
     calendar: {
       options: calendars,
       control: 'select'
@@ -57,6 +58,11 @@ export default {
   }),
   args: {
     "onUpdate:modelValue": fn()
+  },
+  parameters: {
+    controls: {
+      exclude: ['filterDate', 'filterTime']
+    }
   }
 }
 
@@ -64,20 +70,14 @@ export const Basic = {
   args: {},
 }
 
-export const InitToday = {
-  args: {
-    initToday: true
-  },
-}
-
-export const CustomCalendar = {
+export const Calendar = {
   args: {
     calendar: 'persian'
   },
 }
 
 
-export const CustomLocale = {
+export const Locale = {
   args: {
     locale: faLocale
   },
@@ -90,26 +90,63 @@ export const DateValue = {
 }
 
 export const TimestampValue = {
+  argTypes: {
+    modelValue: { control: 'number' },
+  },
   args: {
     modelValue: 1577836800000
   },
 }
 
 export const ISO8601Value = {
+  argTypes: {
+    modelValue: { control: 'text' },
+  },
   args: {
     modelValue: "2020-01-01T00:00:00Z"
   },
 }
 
 export const ContextValue = {
+  argTypes: {
+    modelValue: { control: 'object' },
+  },
+  args: {
+    modelValue: { date: new Date(2020, 1, 1), year: 2020, month: 1, day: 1, hour: 0, minute: 0, second: 0 }
+  },
+}
+
+export const ContextNoDateValue = {
+  argTypes: {
+    modelValue: { control: 'object' },
+  },
   args: {
     modelValue: { date: null, year: 2020, month: 1, day: 1, hour: 0, minute: 0, second: 0 }
   },
 }
 
-export const MinMaxYear = {
+export const CalendarContextValue = {
+  name: 'Calendar + Context Value',
+  argTypes: {
+    modelValue: { control: 'object' },
+  },
   args: {
-    minYear: '2010',
-    maxYear: '2020',
+    calendar: 'persian',
+    modelValue: { date: null, year: 1380, month: 2, day: 3, hour: 0, minute: 0, second: 0 }
+  },
+}
+
+export const MinMax = {
+  args: {
+    min: new Date(2010, 5, 5, 13, 12, 11),
+    max: new Date(2020, 10, 10, 9, 8, 7),
+  },
+}
+
+export const Layout = {
+  args: {
+    layout: [
+      ['year', 'month', 'day'],
+    ]
   },
 }

@@ -12,7 +12,7 @@
   .selector-list-wrapper {
     position: relative;
     &::before {
-      content: '';
+      content: "";
       // width: 100%;
       position: absolute;
       top: 50%;
@@ -22,7 +22,7 @@
       border-left-width: 0;
       border-right-width: 0;
       pointer-events: none;
-      padding: 6px 8px;
+      padding: 4px;
       right: var(--scrollbar-width);
       transform: translateY(-50%);
       box-sizing: border-box;
@@ -41,13 +41,15 @@
     &.is-wheeling {
       cursor: grabbing;
       cursor: -webkit-grabbing;
-      *, *:hover {
+      *,
+      *:hover {
         cursor: grabbing;
         cursor: -webkit-grabbing;
       }
     }
 
-    &::before, &::after {
+    &::before,
+    &::after {
       display: block;
       height: calc(var(--item-height) * 2);
       content: "";
@@ -63,19 +65,19 @@
       border-radius: 5px;
     }
     &::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,.2);
+      background: rgba(0, 0, 0, 0.2);
       border-radius: 5px;
       border-width: 0;
     }
     &::-webkit-scrollbar-thumb:hover {
-      background: rgba(0,0,0,.5);
+      background: rgba(0, 0, 0, 0.5);
     }
     @media screen and (min-width: 640px) {
       &::-webkit-scrollbar {
         width: 8px;
       }
       &::-webkit-scrollbar-track {
-        background: rgba(0,0,0,.05);
+        background: rgba(0, 0, 0, 0.05);
       }
     }
   }
@@ -84,7 +86,7 @@
     padding-right: var(--scrollbar-width);
     user-select: none;
     text-align: center;
-    font-size: .8em;
+    font-size: 0.8em;
     color: #777;
   }
 
@@ -92,7 +94,8 @@
     &.time-list &.small-time {
       .selector-list {
         height: calc(var(--item-height) * 3);
-        &::before, &::after {
+        &::before,
+        &::after {
           height: var(--item-height);
         }
       }
@@ -102,11 +105,13 @@
   .selector-item {
     cursor: pointer;
     height: var(--item-height);
-    padding: 6px 8px;
-    line-height: 24px;
+    padding: 4px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    min-width: 90px;
+    justify-content: center;
   }
-
 }
 .date-time-selector-is-wheeling {
   cursor: -webkit-grabbing;
