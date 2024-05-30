@@ -1,5 +1,5 @@
 <script setup>
-import {watch,nextTick,ref, onMounted, onBeforeUnmount} from 'vue'
+import { watch, nextTick, ref, onMounted, onBeforeUnmount } from 'vue'
 import TouchWheel from '../helpers/touchwheel'
 import getMiddleElement from '../helpers/getMiddleElement'
 import selectorItem from './selector-item.vue'
@@ -15,7 +15,7 @@ const props = defineProps({
   },
   items: {
     type: Array,
-    default () { return [] }
+    default() { return [] }
   },
   itemHeight: {
     type: Number,
@@ -41,15 +41,15 @@ watch(() => props.items, (newVal, oldVal) => {
 })
 
 // methods
-function scrollToValue () {
+function scrollToValue() {
   for (let i = 0; i < props.items.length; i++) {
     if (props.items[i].value === props.modelValue) return selectItem(i)
   }
 }
-function onItemMousedown (item, index, e) {
+function onItemMousedown(item, index, e) {
   _clickIndex = index
 }
-function scrollToMiddle () {
+function scrollToMiddle() {
   const containerEl = listEl.value
   const middleEl = getMiddleElement(containerEl, props.itemHeight)
   if (!middleEl) return
@@ -60,7 +60,7 @@ function scrollToMiddle () {
   const itemIndex = parseInt(scrollTop / props.itemHeight)
   emit('update:modelValue', props.items[itemIndex])
 }
-function selectItem (index) {
+function selectItem(index) {
   const containerEl = listEl.value
   const containerHalf = containerEl.clientHeight / 2
   const itemHalf = props.itemHeight / 2
@@ -72,7 +72,7 @@ function selectItem (index) {
   })
   emit('update:modelValue', props.items[index])
 }
-function onScrollend (e, deltaY) {
+function onScrollend(e, deltaY) {
   if (Math.abs(deltaY) < 2 && _clickIndex !== null) {
     // its click
     selectItem(_clickIndex)
@@ -84,7 +84,7 @@ function onScrollend (e, deltaY) {
   }
   _clickIndex = null
 }
-function onListWheel (e) {
+function onListWheel(e) {
   const containerEl = listEl.value
   const isScrollDown = e.wheelDelta > 0
   const scrollTop = isScrollDown
@@ -116,8 +116,15 @@ onBeforeUnmount(() => {
 
 </script>
 <template>
-  <div class="selector" ref="rootEl">
-    <div v-if="label" class="label" v-text="label" />
+  <div
+    class="selector"
+    ref="rootEl"
+  >
+    <div
+      v-if="label"
+      class="label"
+      v-text="label"
+    />
     <div class="selector-list-wrapper">
       <div
         ref="listEl"
@@ -129,6 +136,7 @@ onBeforeUnmount(() => {
           :key="item.value"
           :label="item.text"
           :selected="modelValue === item.value"
+          :disabled="item.disabled"
           @mousedown="onItemMousedown(item, index, $event)"
         />
       </div>

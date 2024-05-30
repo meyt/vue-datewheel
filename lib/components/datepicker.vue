@@ -228,8 +228,7 @@ function updateMaxTime(d, max) {
     : [23, 59, 59]
 }
 function getCtx() {
-  return {
-    date: cDate.value,
+  const r = {
     year: cYear.value,
     month: cMonth.value,
     day: cDay.value,
@@ -237,6 +236,9 @@ function getCtx() {
     minute: cMinute.value,
     second: cSecond.value,
   }
+  r.isFiltered = !props.filter(r)
+  r.date = cDate.value
+  return r
 }
 const setField = debounce(function (k, v) {
   v = v.value

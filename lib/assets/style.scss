@@ -111,6 +111,9 @@
     align-items: center;
     min-width: 90px;
     justify-content: center;
+    &.is-disabled {
+      opacity: 0.3;
+    }
   }
 }
 .date-time-selector-is-wheeling {

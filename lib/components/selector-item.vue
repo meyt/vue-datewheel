@@ -1,5 +1,5 @@
 <script setup>
-import {computed} from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   label: {
@@ -9,11 +9,16 @@ const props = defineProps({
   selected: {
     type: Boolean,
     default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 })
 const classes = computed(() => {
   const res = ['selector-item rounded']
   if (props.selected) res.push('is-selected')
+  if (props.disabled) res.push('is-disabled')
   return res
 })
 
