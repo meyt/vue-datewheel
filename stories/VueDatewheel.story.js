@@ -146,7 +146,47 @@ export const MinMax = {
 export const Layout = {
   args: {
     layout: [
-      ['year', 'month', 'day'],
+      ['month', 'day', 'year'],
     ]
+  },
+}
+
+export const Filter2020 = {
+  args: {
+    min: new Date(2018, 5, 5, 13, 12, 11),
+    max: new Date(2022, 10, 10, 9, 8, 7),
+    filter(o) {
+      return o.year !== 2020
+    }
+  },
+}
+
+export const FilterFebruary = {
+  args: {
+    min: new Date(2018, 5, 5, 13, 12, 11),
+    max: new Date(2022, 10, 10, 9, 8, 7),
+    filter(o) {
+      return o.month !== 2
+    }
+  },
+}
+
+export const FilterFebruary2020 = {
+  args: {
+    min: new Date(2018, 5, 5, 13, 12, 11),
+    max: new Date(2022, 10, 10, 9, 8, 7),
+    filter(o) {
+      return !(o.year === 2020 && o.month === 2)
+    }
+  },
+}
+
+export const Filter6am = {
+  args: {
+    min: new Date(2018, 5, 5, 13, 12, 11),
+    max: new Date(2022, 10, 10, 9, 8, 7),
+    filter(o) {
+      return o.hour !== 6
+    }
   },
 }
